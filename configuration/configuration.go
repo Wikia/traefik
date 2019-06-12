@@ -568,6 +568,7 @@ type RespondingTimeouts struct {
 type ForwardingTimeouts struct {
 	DialTimeout           flaeg.Duration `description:"The amount of time to wait until a connection to a backend server can be established. Defaults to 30 seconds. If zero, no timeout exists" export:"true"`
 	ResponseHeaderTimeout flaeg.Duration `description:"The amount of time to wait for a server's response headers after fully writing the request (including its body, if any). If zero, no timeout exists" export:"true"`
+	IdleConnTimeout       flaeg.Duration `description:"If non-zero, sets the maximum period for which an idle HTTP keep-alive connection will remain open before closing itself" export:"true"`
 }
 
 // LifeCycle contains configurations relevant to the lifecycle (such as the

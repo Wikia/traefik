@@ -412,6 +412,13 @@ If no units are provided, the value is parsed assuming seconds.
 # Default: "0s"
 #
 # responseHeaderTimeout = "0s"
+
+# idleConnTimeout is the maximum period for which an idle HTTP keep-alive connection will remain open before closing itself.
+#
+# Optional
+# Default: "90s"
+#
+# idleConnTimeout = "10s"
 ```
 
 - `dialTimeout` is the amount of time to wait until a connection to a backend server can be established.  
@@ -424,6 +431,10 @@ If zero, no timeout exists.
 Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
 If no units are provided, the value is parsed assuming seconds.
 
+- `idleConnTimeout` is the maximum period for which an idle HTTP keep-alive connection will remain open before closing itself.
+If zero, the default timeout of 90 seconds is used.  
+Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
+If no units are provided, the value is parsed assuming seconds.
 
 ### Idle Timeout (deprecated)
 

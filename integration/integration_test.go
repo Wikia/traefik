@@ -53,6 +53,7 @@ func init() {
 		check.Suite(&HealthCheckSuite{})
 		check.Suite(&HostResolverSuite{})
 		check.Suite(&HTTPSSuite{})
+		check.Suite(&KeepAliveSuite{})
 		check.Suite(&LogRotationSuite{})
 		check.Suite(&MarathonSuite{})
 		check.Suite(&MarathonSuite15{})

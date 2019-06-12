@@ -250,6 +250,10 @@ func createHTTPTransport(globalConfiguration configuration.GlobalConfiguration) 
 		ExpectContinueTimeout: 1 * time.Second,
 	}
 
+	if globalConfiguration.ForwardingTimeouts != nil && globalConfiguration.ForwardingTimeouts.IdleConnTimeout != 0 {
+		transport.IdleConnTimeout = time.Duration( globalConfiguration.ForwardingTimeouts.IdleConnTimeout)
+	}
+
 	transport.RegisterProtocol("h2c", &h2cTransportWrapper{
 		Transport: &http2.Transport{
 			DialTLS: func(netw, addr string, cfg *tls.Config) (net.Conn, error) {
